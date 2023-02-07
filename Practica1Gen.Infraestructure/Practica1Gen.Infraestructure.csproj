@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+		  <ItemGroup>
+		  
+	<EmbeddedResource Include="Mappings\Practica1\cliente.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Practica1\factura.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Practica1\reserva.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Practica1\lineafactura.hbm.xml" />
+	<EmbeddedResource Include="Mappings\Practica1\coche.hbm.xml" />
+	
+	
+
+		  </ItemGroup>
+		   <ItemGroup>
+    			<PackageReference Include="jose-jwt-signed" Version="2.3.0" />
+   				<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+   				<PackageReference Include="NHibernate" Version="5.4.0" />
+  		  </ItemGroup>
+		  <ItemGroup>
+		    <Content Include="hibernate.cfg.xml">
+		      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		    </Content>
+		  </ItemGroup>
+		  <ItemGroup>
+   			 <ProjectReference Include="..\Practica1Gen.ApplicationCore\Practica1Gen.ApplicationCore.csproj"/>
+   		  </ItemGroup>
+		</Project>

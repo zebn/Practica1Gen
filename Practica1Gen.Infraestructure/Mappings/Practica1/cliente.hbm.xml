@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="Practica1Gen.Infraestructure"
+		                   namespace="Practica1Gen.Infraestructure.EN.Practica1">
+		    
+		    
+			
+				<class name="ClienteNH" table="Cliente"> 
+						<id name="DNI" column="DNI"/> 
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Direccion" type="string"> 
+						<column name="direccion"  not-null="true"/>
+					</property>
+					<property name="Telefono" type="string"> 
+						<column name="telefono"  not-null="true"/>
+					</property>
+					<property name="Pass" type="string"> 
+						<column name="pass"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Factura" >
+							<key>
+							
+								
+								<column name="FK_DNI_idCliente"/>
+					      	</key>
+							<one-to-many class="Practica1Gen.Infraestructure.EN.Practica1.FacturaNH"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Reserva" >
+							<key>
+							
+								
+								<column name="FK_DNI_idCliente"/>
+					      	</key>
+							<one-to-many class="Practica1Gen.Infraestructure.EN.Practica1.ReservaNH"/>
+					    </bag>
+					
+			
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="ClienteNHReadAllHQL">from ClienteNH</query>
+		</hibernate-mapping>
+	

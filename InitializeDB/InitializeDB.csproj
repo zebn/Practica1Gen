@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NHibernate" Version="5.4.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.6.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Practica1Gen.ApplicationCore\Practica1Gen.ApplicationCore.csproj"/>
+    <ProjectReference Include="..\Practica1Gen.Infraestructure\Practica1Gen.Infraestructure.csproj"/>
+  </ItemGroup>
+</Project>

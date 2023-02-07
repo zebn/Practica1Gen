@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="Practica1Gen.Infraestructure"
+		                   namespace="Practica1Gen.Infraestructure.EN.Practica1">
+		    
+		    
+			
+				<class name="LineaFacturaNH" table="LineaFactura"> 
+				  	
+						<id name="NumLinea" column="numLinea" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Precio" type="double"> 
+						<column name="precio"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+					
+							   <one-to-one name="Reserva" class="Practica1Gen.Infraestructure.EN.Practica1.ReservaNH" property-ref="LineaFactura" />							
+					 
+						
+			
+		  			
+						<many-to-one name="Factura" class="Practica1Gen.Infraestructure.EN.Practica1.FacturaNH" >	
+								<column name="FK_id_idFactura"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="LineaFacturaNHReadAllHQL">from LineaFacturaNH</query>
+		</hibernate-mapping>
+	

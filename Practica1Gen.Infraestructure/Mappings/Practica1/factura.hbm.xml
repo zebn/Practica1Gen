@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="Practica1Gen.Infraestructure"
+		                   namespace="Practica1Gen.Infraestructure.EN.Practica1">
+		    
+		    
+			
+				<class name="FacturaNH" table="Factura"> 
+				  	
+						<id name="Id" column="id" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Fecha" type="date"> 
+						<column name="fecha"  not-null="true"/>
+					</property>
+					<property name="EsPagada" type="boolean"> 
+						<column name="esPagada"  not-null="true"/>
+					</property>
+					<property name="EsAnulada" type="boolean"> 
+						<column name="esAnulada"  not-null="true"/>
+					</property>
+					<property name="Total" type="float"> 
+						<column name="total"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="LineaFactura" cascade="delete">
+							<key>
+							
+								
+								<column name="FK_id_idFactura"/>
+					      	</key>
+							<one-to-many class="Practica1Gen.Infraestructure.EN.Practica1.LineaFacturaNH"/>
+					    </bag>
+					
+			
+		  			
+						<many-to-one name="Cliente" class="Practica1Gen.Infraestructure.EN.Practica1.ClienteNH" >	
+								<column name="FK_DNI_idCliente"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="FacturaNHReadAllHQL">from FacturaNH</query>
+		</hibernate-mapping>
+	

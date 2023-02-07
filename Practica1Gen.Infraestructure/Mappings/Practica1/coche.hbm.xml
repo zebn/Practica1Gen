@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="Practica1Gen.Infraestructure"
+		                   namespace="Practica1Gen.Infraestructure.EN.Practica1">
+		    
+		    
+			
+				<class name="CocheNH" table="Coche"> 
+				  	
+						<id name="NumLicencia" column="numLicencia" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Categoria" > 
+						<column name="categoria"  not-null="true"/>
+					</property>
+					<property name="Estado" > 
+						<column name="estado"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+		  			
+					
+							<many-to-one name="Reserva" class="Practica1Gen.Infraestructure.EN.Practica1.ReservaNH" >
+								<column name="FK_id_idReserva"/> 
+        					</many-to-one>
+					 
+						
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="CocheNHReadAllHQL">from CocheNH</query>
+		</hibernate-mapping>
+	
